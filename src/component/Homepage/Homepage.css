@@ -1,0 +1,31 @@
+html {
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  overflow: scroll;
+  background-image: linear-gradient(to bottom right, #01b4e4, #90cea1);
+}
+
+.container {
+  margin-top: 10em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.img {
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  border-radius: 30px;
+  padding: 3em 6em;
+  margin: 3em 6em;
+
+  box-shadow: 0 0 30px #424344;
+}
