@@ -19,6 +19,7 @@ function FilmLibrary() {
   useEffect(() => {
     const listURL = `
   https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${page}&primary_release_year=${year}`;
+
     fetch(listURL)
       .then((response) => {
         return response.json();
@@ -34,19 +35,20 @@ function FilmLibrary() {
             overview: film.overview,
             fave: false,
           }));
-
-          setResult((r) => [...result, ...searchResult]);
+          setResult([...result, ...searchResult]);
         }
+
         setTotalPages(jsonData.total_pages);
       })
       .catch((error) => {
         console.log(error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year, page]);
 
-  const handleSeleced = (id) => {
+  function handleSeleced(id) {
     setSelectedFilm(result.find((film) => film.id === id));
-  };
+  }
 
   const loadMore = () => {
     if (page < totalPages) {
